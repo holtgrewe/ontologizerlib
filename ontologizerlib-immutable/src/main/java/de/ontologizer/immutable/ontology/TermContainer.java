@@ -1,5 +1,6 @@
 package de.ontologizer.immutable.ontology;
 
+import ontologizer.ontology.Term;
 import ontologizer.types.ByteString;
 
 /**

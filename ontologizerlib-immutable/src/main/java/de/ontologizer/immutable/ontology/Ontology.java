@@ -51,7 +51,7 @@ public interface Ontology<EdgeType extends OntologyEdge> extends TermMap, Serial
 	/**
 	 * Query for root {@link Term}.
 	 * 
-	 * @public The {@link Term} that is the root of the ontology.
+	 * @return The {@link Term} that is the root of the ontology.
 	 */
 	public Term getRootTerm();
 

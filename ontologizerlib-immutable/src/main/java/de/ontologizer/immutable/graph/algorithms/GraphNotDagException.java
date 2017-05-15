@@ -1,5 +1,7 @@
 package de.ontologizer.immutable.graph.algorithms;
 
+import de.ontologizer.immutable.graph.DirectedGraph;
+
 /**
  * Raised when {@link DirectedGraph} is not a DAG.
  *

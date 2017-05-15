@@ -473,7 +473,7 @@ public class Ontology implements Iterable<Term>, Serializable
 	{
 		Set<ParentTermID> parents = getTermParentsWithRelation(term);
 		for (ParentTermID p : parents)
-			if (p.getTermRelation().equals(parent)) return p.getTermRelation();
+			if (p.getTermID().equals(parent)) return p.getTermRelation();
 		return null;
 	}
 

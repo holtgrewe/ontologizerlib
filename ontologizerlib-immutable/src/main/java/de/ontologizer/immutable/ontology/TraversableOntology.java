@@ -19,7 +19,9 @@ import ontologizer.ontology.TermRelation;
  * @author Sebastian Bauer
  * @author <a href="mailto:manuel.holtgrewe@bihealth.de">Manuel Holtgrewe</a>
  */
-public interface TraversableOntology<EdgeType extends OntologyEdge> extends OntologyDecorator<EdgeType> {
+public interface TraversableOntology<EdgeType extends OntologyEdge>
+		extends
+			OntologyDecorator<EdgeType> {
 
 	/**
 	 * Query whether a directed path from <code>sourceID</code> to
@@ -42,22 +44,24 @@ public interface TraversableOntology<EdgeType extends OntologyEdge> extends Onto
 	 * @param visitor
 	 *            {@link VertexVisitor} to use for callback
 	 */
-	public void walkToSource(TermID termId, VertexVisitor<Term, EdgeType> visitor);
+	public void walkToSource(TermID termId,
+			VertexVisitor<Term, EdgeType> visitor);
 
 	/**
 	 * Starting at the given {@link TermID}s, walk to the source of the DAG and
 	 * visit each vertex with <code>visitor</code> only using the relations in
-	 * {@link relations}.
+	 * <code>relations</code>
 	 *
-	 * @param termID
+	 * @param termId
 	 *            {@link TermID}s to start at (note that <code>visitor</code>
 	 *            also visits the start vertices)
-	 * @param vistingVertex
+	 * @param visitor
 	 *            {@link VertexVisitor} to use for callback
-	 * @param relations
+	 * @param relationsToFollow
 	 *            {@link Collection} of {@link TermRelation}s to follow
 	 */
-	public void walkToSource(TermID termId, VertexVisitor<Term, EdgeType> visitor,
+	public void walkToSource(TermID termId,
+			VertexVisitor<Term, EdgeType> visitor,
 			EnumSet<TermRelation> relationsToFollow);
 
 	/**
@@ -70,22 +74,24 @@ public interface TraversableOntology<EdgeType extends OntologyEdge> extends Onto
 	 * @param visitor
 	 *            {@link VertexVisitor} to use for callback
 	 */
-	public void walkToSource(Collection<TermID> termIds, VertexVisitor<Term, EdgeType> vistingVertex);
+	public void walkToSource(Collection<TermID> termIds,
+			VertexVisitor<Term, EdgeType> visitor);
 
 	/**
 	 * Starting at all {@link Term}s with the given {@link TermID}s, walk to the
 	 * source of the DAG and visit each vertex with <code>visitor</code> only
-	 * using the relations in {@link relations}.
+	 * using the relations in <code>relations</code>.
 	 *
-	 * @param termIDSet
+	 * @param termIdSet
 	 *            {@link Collection} of {@link TermID}s to start at (note that
 	 *            <code>visitor</code> also visits the start vertices)
-	 * @param vistingVertex
+	 * @param visitor
 	 *            {@link VertexVisitor} to use for callback
-	 * @param relations
+	 * @param relationsToFollow
 	 *            {@link Collection} of {@link TermRelation}s to follow
 	 */
-	public void walkToSource(Collection<TermID> termIdSet, VertexVisitor<Term, EdgeType> visitor,
+	public void walkToSource(Collection<TermID> termIdSet,
+			VertexVisitor<Term, EdgeType> visitor,
 			EnumSet<TermRelation> relationsToFollow);
 
 	/**
@@ -98,22 +104,24 @@ public interface TraversableOntology<EdgeType extends OntologyEdge> extends Onto
 	 * @param visitor
 	 *            {@link VertexVisitor} to use for callback
 	 */
-	public void walkToSinks(TermID termId, VertexVisitor<Term, EdgeType> visitor);
+	public void walkToSinks(TermID termId,
+			VertexVisitor<Term, EdgeType> visitor);
 
 	/**
 	 * Starting at the given {@link TermID}s, walk to the sinks of the DAG and
 	 * visit each vertex with <code>visitor</code> only using the relations in
-	 * {@link relations}.
+	 * <code>relations</code>.
 	 *
 	 * @param termId
 	 *            {@link TermID}s to start with (note that <code>visitor</code>
 	 *            also visits the start vertex).
 	 * @param visitor
 	 *            {@link VertexVisitor} to use for callback
-	 * @param relations
+	 * @param relationsToFollow
 	 *            {@link Collection} of {@link TermRelation}s to follow
 	 */
-	public void walkToSinks(TermID termId, VertexVisitor<Term, EdgeType> visitor,
+	public void walkToSinks(TermID termId,
+			VertexVisitor<Term, EdgeType> visitor,
 			EnumSet<TermRelation> relationsToFollow);
 
 	/**
@@ -126,22 +134,24 @@ public interface TraversableOntology<EdgeType extends OntologyEdge> extends Onto
 	 * @param visitor
 	 *            {@link VertexVisitor} to use for callback
 	 */
-	public void walkToSinks(Collection<TermID> termIds, VertexVisitor<Term, EdgeType> visitor);
+	public void walkToSinks(Collection<TermID> termIds,
+			VertexVisitor<Term, EdgeType> visitor);
 
 	/**
 	 * Starting at all {@link Term}s with the given {@link TermID}s, walk to the
 	 * sinks of the DAG and visit each vertex with <code>visitor</code> only
-	 * using the relations in {@link relations}.
+	 * using the relations in <code>relations</code>.
 	 *
 	 * @param termIds
 	 *            {@link Collection} of {@link TermID}s to start with (note that
 	 *            <code>visitor</code> also visits the start vertices)
 	 * @param visitor
 	 *            {@link VertexVisitor} to use for callback
-	 * @param relations
+	 * @param relationsToFollow
 	 *            {@link Collection} of {@link TermRelation}s to follow
 	 */
-	public void walkToSinks(Collection<TermID> termIds, VertexVisitor<Term, EdgeType> visitor,
+	public void walkToSinks(Collection<TermID> termIds,
+			VertexVisitor<Term, EdgeType> visitor,
 			EnumSet<TermRelation> relationsToFollow);
 
 }

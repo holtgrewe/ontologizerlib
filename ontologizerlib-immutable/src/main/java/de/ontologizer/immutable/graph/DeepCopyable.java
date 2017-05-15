@@ -14,7 +14,7 @@ public interface DeepCopyable<T> {
 	 * Deep copies make copies of containers and recursively of all contained objects.
 	 * </p>
 	 *
-	 * @return deep copy of <code>this</code
+	 * @return deep copy of <code>this</code>
 	 */
 	public T deepCopy();
 

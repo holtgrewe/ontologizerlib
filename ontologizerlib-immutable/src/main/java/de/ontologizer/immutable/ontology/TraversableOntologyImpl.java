@@ -29,7 +29,7 @@ import ontologizer.ontology.TermRelation;
  *
  * oTraversal.walkToSource(new TermID("GO:", 123), new VertexVisitor() {
  *     &#64;Override
- *     public boolean visit(DirectedGraph<Term> g, Term v) {
+ *     public boolean visit(DirectedGraph&lt;Term&gt; g, Term v) {
  *     // ...
  *     return true;
  * });
@@ -109,7 +109,7 @@ public class TraversableOntologyImpl<EdgeType extends OntologyEdge> implements T
 	public void walkToSource(TermID termId, VertexVisitor<Term, EdgeType> visitor,
 			EnumSet<TermRelation> relationsToFollow) {
 		new BreadthFirstSearch<Term, EdgeType, DirectedGraph<Term, EdgeType>>().startFrom(ontology.getGraph(),
-				get(termId), new RelationsToFollowNeighborSelector(false, relationsToFollow), visitor);
+				get(termId), new RelationsToFollowNeighborSelector(true, relationsToFollow), visitor);
 	}
 
 	@Override
@@ -136,7 +136,7 @@ public class TraversableOntologyImpl<EdgeType extends OntologyEdge> implements T
 	public void walkToSinks(TermID termId, VertexVisitor<Term, EdgeType> visitor,
 			EnumSet<TermRelation> relationsToFollow) {
 		new BreadthFirstSearch<Term, EdgeType, DirectedGraph<Term, EdgeType>>().startFrom(ontology.getGraph(),
-				get(termId), new RelationsToFollowNeighborSelector(true, relationsToFollow), visitor);
+				get(termId), new RelationsToFollowNeighborSelector(false, relationsToFollow), visitor);
 	}
 
 	@Override

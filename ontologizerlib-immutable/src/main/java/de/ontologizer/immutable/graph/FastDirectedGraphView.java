@@ -130,7 +130,7 @@ public interface FastDirectedGraphView<VertexType, EdgeType extends Edge<VertexT
 	 * @param v
 	 *            <code>Vertex</code> to use for querying
 	 * @return {@link List} of <code>Vertex</code> objects of ancestors of
-	 *         <code>v</code, up to the root, excluding <code>v</code.
+	 *         <code>v</code>, up to the root, excluding <code>v</code>.
 	 */
 	public List<VertexType> getParents(VertexType v);
 

@@ -20,13 +20,23 @@ import ontologizer.ontology.TermID;
  * 
  * @author <a href="mailto:manuel.holtgrewe@bihealth.de">Manuel Holtgrewe</a>
  */
-public class OntologyDotWriter<EdgeType extends OntologyEdge> implements OntologyWriter<EdgeType> {
+public class OntologyDotWriter<EdgeType extends OntologyEdge>
+		implements
+			OntologyWriter<EdgeType> {
 
 	/** Where the data is written to. */
 	private final WriterOutput writerOutput;
 
 	/**
 	 * Construct with {@link String} path to output file.
+	 * 
+	 * @param <EdgeType>
+	 *            {@link OntologyEdge} sub type to use for the ontology's edge
+	 *            type
+	 * @param outputPath
+	 *            Path to file to write to
+	 * @return {@link OntologyDotWriter} constructed for the give
+	 *         <code>outputPath</code>
 	 */
 	public static <EdgeType extends OntologyEdge> OntologyDotWriter<EdgeType> fromPath(
 			String outputPath) {
@@ -35,14 +45,26 @@ public class OntologyDotWriter<EdgeType extends OntologyEdge> implements Ontolog
 
 	/**
 	 * Construct with output {@link File}.
+	 * 
+	 * @param <EdgeType>
+	 *            {@link OntologyEdge} sub type to use for the ontology's edge
+	 *            type
+	 * @param outputFile
+	 *            {@link File} to write to
+	 * @return {@link OntologyDotWriter} constructed for the give
+	 *         <code>outputFile</code>
 	 */
 	public static <EdgeType extends OntologyEdge> OntologyDotWriter<EdgeType> fromFile(
 			File outputFile) {
-		return new OntologyDotWriter<EdgeType>(new FileWriterOutput(outputFile));
+		return new OntologyDotWriter<EdgeType>(
+				new FileWriterOutput(outputFile));
 	}
 
 	/**
 	 * Construct with {@link WriterOutput}.
+	 * 
+	 * @param writerOutput
+	 *            {@link WriterOutput} to write to
 	 */
 	public OntologyDotWriter(WriterOutput writerOutput) {
 		this.writerOutput = writerOutput;
@@ -62,8 +84,10 @@ public class OntologyDotWriter<EdgeType extends OntologyEdge> implements Ontolog
 		ontologizer.ontology.Ontology legacyOntology = ontologizer.ontology.Ontology
 				.create(legacyTC);
 
-		GODOTWriter.writeDOT(legacyOntology, new File(writerOutput.getFilename()),
-				ontology.getRootTerm().getID(), termIDs, new AbstractDotAttributesProvider());
+		GODOTWriter.writeDOT(legacyOntology,
+				new File(writerOutput.getFilename()),
+				ontology.getRootTerm().getID(), termIDs,
+				new AbstractDotAttributesProvider());
 	}
 
 }

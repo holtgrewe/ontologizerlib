@@ -5,7 +5,10 @@ package de.ontologizer.immutable.graph;
  *
  * @author <a href="mailto:manuel.holtgrewe@bihealth.de">Manuel Holtgrewe</a>
  */
-public final class ImmutableEdge<VertexType> implements Edge<VertexType>, ShallowCopyable<ImmutableEdge<VertexType>> {
+public final class ImmutableEdge<VertexType>
+		implements
+			Edge<VertexType>,
+			ShallowCopyable<ImmutableEdge<VertexType>> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -21,7 +24,8 @@ public final class ImmutableEdge<VertexType> implements Edge<VertexType>, Shallo
 	 * @param dest
 	 *            <code>Vertex</code> to use for the edge tip vertex
 	 */
-	public static <Vertex> ImmutableEdge<Vertex> construct(Vertex source, Vertex dest) {
+	public static <Vertex> ImmutableEdge<Vertex> construct(Vertex source,
+			Vertex dest) {
 		return new ImmutableEdge<Vertex>(source, dest);
 	}
 
@@ -102,7 +106,7 @@ public final class ImmutableEdge<VertexType> implements Edge<VertexType>, Shallo
 	}
 
 	/**
-	 * Static factory method for creating a {@link #Factory}
+	 * Static factory method for creating a {@link Factory}
 	 * 
 	 * @return Built <code>Factory</code> object.
 	 */
@@ -116,7 +120,9 @@ public final class ImmutableEdge<VertexType> implements Edge<VertexType>, Shallo
 	 * @author <a href="mailto:manuel.holtgrewe@bihealth.de">Manuel
 	 *         Holtgrewe</a>
 	 */
-	public static class Factory<VertexType> implements Edge.Factory<VertexType, ImmutableEdge<VertexType>> {
+	public static class Factory<VertexType>
+			implements
+				Edge.Factory<VertexType, ImmutableEdge<VertexType>> {
 
 		@Override
 		public ImmutableEdge<VertexType> construct(VertexType u, VertexType v) {

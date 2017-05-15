@@ -12,7 +12,9 @@ import ontologizer.ontology.TermRelation;
  * @author <a href="mailto:manuel.holtgrewe@bihealth.de">Manuel Holtgrewe</a>
  */
 public final class ImmutableOntologyEdge
-		implements OntologyEdge, ShallowCopyable<ImmutableOntologyEdge> {
+		implements
+			OntologyEdge,
+			ShallowCopyable<ImmutableOntologyEdge> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -36,7 +38,8 @@ public final class ImmutableOntologyEdge
 	}
 
 	/**
-	 * Construct <code>ImmutableEdge</code> with the given source and destination vertices.
+	 * Construct <code>ImmutableEdge</code> with the given source and
+	 * destination vertices.
 	 *
 	 * @param source
 	 *            {@link Term} to use for the edge foot vertex
@@ -45,7 +48,8 @@ public final class ImmutableOntologyEdge
 	 * @param termRelation
 	 *            {@link TermRelation} to use for the label
 	 */
-	public ImmutableOntologyEdge(Term source, Term dest, TermRelation termRelation) {
+	public ImmutableOntologyEdge(Term source, Term dest,
+			TermRelation termRelation) {
 		this.source = source;
 		this.dest = dest;
 		this.termRelation = termRelation;
@@ -78,8 +82,8 @@ public final class ImmutableOntologyEdge
 
 	@Override
 	public String toString() {
-		return "ImmutableOntologyEdge [source=" + source + ", dest=" + dest + ", termRelation="
-				+ termRelation + "]";
+		return "ImmutableOntologyEdge [source=" + source + ", dest=" + dest
+				+ ", termRelation=" + termRelation + "]";
 	}
 
 	@Override
@@ -88,7 +92,8 @@ public final class ImmutableOntologyEdge
 		int result = 1;
 		result = prime * result + ((dest == null) ? 0 : dest.hashCode());
 		result = prime * result + ((source == null) ? 0 : source.hashCode());
-		result = prime * result + ((termRelation == null) ? 0 : termRelation.hashCode());
+		result = prime * result
+				+ ((termRelation == null) ? 0 : termRelation.hashCode());
 		return result;
 	}
 
@@ -117,7 +122,7 @@ public final class ImmutableOntologyEdge
 	}
 
 	/**
-	 * Static factory method for creating a {@link #Factory}
+	 * Static factory method for creating a {@link Factory}
 	 * 
 	 * @return Built <code>Factory</code> object.
 	 */
@@ -128,9 +133,12 @@ public final class ImmutableOntologyEdge
 	/**
 	 * Factory for {@link ImmutableEdge}.
 	 * 
-	 * @author <a href="mailto:manuel.holtgrewe@bihealth.de">Manuel Holtgrewe</a>
+	 * @author <a href="mailto:manuel.holtgrewe@bihealth.de">Manuel
+	 *         Holtgrewe</a>
 	 */
-	public static class Factory implements Edge.Factory<Term, ImmutableOntologyEdge> {
+	public static class Factory
+			implements
+				Edge.Factory<Term, ImmutableOntologyEdge> {
 
 		@Override
 		public ImmutableOntologyEdge construct(Term u, Term v) {

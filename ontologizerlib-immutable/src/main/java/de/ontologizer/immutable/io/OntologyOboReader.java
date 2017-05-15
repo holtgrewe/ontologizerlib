@@ -26,6 +26,11 @@ public class OntologyOboReader implements OntologyReader {
 
 	/**
 	 * Construct with {@link String} path to output file.
+	 * 
+	 * @param outputPath
+	 *            Path to file to to write to.
+	 * @return {@link OntologyOboReader} constructed with
+	 *         <code>outputPath</code>
 	 */
 	public static OntologyOboReader fromPath(String outputPath) {
 		return fromFile(new File(outputPath));
@@ -33,6 +38,11 @@ public class OntologyOboReader implements OntologyReader {
 
 	/**
 	 * Construct with output {@link File}.
+	 * 
+	 * @param outputFile
+	 *            {@link File} to write to.
+	 * @return {@link OntologyOboReader} constructed with
+	 *         <code>outputFile</code>
 	 */
 	public static OntologyOboReader fromFile(File outputFile) {
 		return new OntologyOboReader(new FileReaderInput(outputFile));
@@ -40,6 +50,9 @@ public class OntologyOboReader implements OntologyReader {
 
 	/**
 	 * Construct with {@link ReaderInput}.
+	 * 
+	 * @param readerInput
+	 *            {@link ReaderInput} to read from
 	 */
 	public OntologyOboReader(ReaderInput readerInput) {
 		this.readerInput = readerInput;
@@ -87,7 +100,8 @@ public class OntologyOboReader implements OntologyReader {
 
 		// Build TermContainer from parse results
 		return ImmutableOntology.constructFromTerms(
-				new ImmutableTermContainer(parser.getTermMap(), parser.getFormatVersion(), parser.getDate()));
+				new ImmutableTermContainer(parser.getTermMap(),
+						parser.getFormatVersion(), parser.getDate()));
 	}
 
 }

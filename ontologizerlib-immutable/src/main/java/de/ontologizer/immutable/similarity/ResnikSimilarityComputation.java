@@ -1,6 +1,6 @@
 package de.ontologizer.immutable.similarity;
 
-import de.ontologizer.immutable.annotations.InformationContentMap;
+import de.ontologizer.immutable.ic.InformationContentMap;
 import de.ontologizer.immutable.ontology.ImmutableOntology;
 import de.ontologizer.immutable.ontology.Ontology;
 import ontologizer.ontology.Term;
@@ -18,11 +18,13 @@ public class ResnikSimilarityComputation extends AbstractSimilarityComputation {
 	 * @param ontology
 	 *            The {@link Ontology} to base the computation on
 	 * @param informationContent
-	 *            Label for each {@link Term} in <code>ontology</code> with the information content
+	 *            Label for each {@link Term} in <code>ontology</code> with the
+	 *            information content
 	 */
 	public ResnikSimilarityComputation(ImmutableOntology ontology,
 			InformationContentMap informationContent) {
-		super(new ResnikOneToOneSimilarityComputation(ontology, informationContent));
+		super(new ResnikOneToOneSimilarityComputation(ontology,
+				informationContent));
 	}
 
 }

@@ -19,7 +19,9 @@ import java.util.Iterator;
  *
  * @author <a href="mailto:manuel.holtgrewe@bihealth.de">Manuel Holtgrewe</a>
  */
-public interface DirectedGraph<VertexType, EdgeType extends Edge<? extends VertexType>> extends Serializable {
+public interface DirectedGraph<VertexType, EdgeType extends Edge<? extends VertexType>>
+		extends
+			Serializable {
 
 	/**
 	 * Query whether the given vertex is contained in the graph.
@@ -64,7 +66,7 @@ public interface DirectedGraph<VertexType, EdgeType extends Edge<? extends Verte
 	public boolean containsEdge(VertexType source, VertexType dest);
 
 	/**
-	 * Query for the edge between <code>source</code> and </code> dest.
+	 * Query for the edge between <code>source</code> and <code>dest</code>.
 	 *
 	 * @param source
 	 *            source <code>Vertex</code> of edge to query for
@@ -94,13 +96,15 @@ public interface DirectedGraph<VertexType, EdgeType extends Edge<? extends Verte
 	 *
 	 * @param v
 	 *            <code>Vertex</code> to use for the query.
-	 * @return number of incoming edges into <code>v</code.
+	 * @return number of incoming edges into <code>v</code>.
 	 */
 	public int getInDegree(VertexType v);
 
 	/**
 	 * Construct and return in-edge iterator.
 	 *
+	 * @param v
+	 *            <code>VertexType</code> to use for query
 	 * @return In-edge iterator for <code>v</code>
 	 */
 	public Iterator<EdgeType> inEdgeIterator(VertexType v);
@@ -110,13 +114,15 @@ public interface DirectedGraph<VertexType, EdgeType extends Edge<? extends Verte
 	 *
 	 * @param v
 	 *            <code>Vertex</code> to use for the query.
-	 * @return number of outgoing edges from <code>v</code.
+	 * @return number of outgoing edges from <code>v</code>.
 	 */
 	public int getOutDegree(VertexType v);
 
 	/**
 	 * Construct and return out-edge iterator.
 	 *
+	 * @param v
+	 *            Vertex to get out edge iterator for
 	 * @return Out-edge iterator for <code>v</code>
 	 */
 	public Iterator<EdgeType> outEdgeIterator(VertexType v);
@@ -150,6 +156,7 @@ public interface DirectedGraph<VertexType, EdgeType extends Edge<? extends Verte
 	 * @return <code>DirectedGraph</code> induced by restricting the vertex set
 	 *         to <code>vertices</code>.
 	 */
-	public DirectedGraph<VertexType, EdgeType> subGraph(Collection<VertexType> vertices);
+	public DirectedGraph<VertexType, EdgeType> subGraph(
+			Collection<VertexType> vertices);
 
 }

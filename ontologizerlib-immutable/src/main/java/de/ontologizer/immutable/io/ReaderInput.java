@@ -1,5 +1,6 @@
 package de.ontologizer.immutable.io;
 
+import de.ontologizer.immutable.ontology.Ontology;
 import java.io.InputStream;
 
 /**
